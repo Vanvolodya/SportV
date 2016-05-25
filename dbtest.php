@@ -15,24 +15,22 @@
     parse_str(str_replace(";", "&", $connenv), $connarray);
     
     $connstring = "sqlsrv:Server=".$connarray["Data_Source"].";Database=".$connarray["Initial_Catalog"];
-    $item = $connarray["item_title"];
-    $descr = $connarray["item_description"];
-	$price = $connarray["item_price"];
+    $user = $connarray["User_Id"];
+    $pass = $connarray["Password"];
     
     function printCollations($conn)
     {
-        $sql = "SELECT title, description FROM sys.fn_helpcollations()";
+        $sql = "SELECT name, description FROM sys.fn_helpcollations()";
         foreach ($conn->query($sql) as $row)
         {
-            print $row['title'] . "\t";
-			print $row['description'] . "\t";
-            print $row['price'] . "<br>";
+            print $row['name'] . "\t";
+            print $row['description'] . "<br>";
         }
     }
 
     try
     {
-        $conn = new PDO( $connstring, $item, $descr, $price );
+        $conn = new PDO( $connstring, $user, $pass );
         
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         
@@ -49,19 +47,17 @@
         $sqlinsert = "insert into items (title,description,price) values (?, ?, ?)";
         $insertquery = $conn->prepare($sqlinsert);
       
-        // test set of items
-        $myitems = array(
-            array("Мяч для футболу SELECT Contra", "Опис", 598),
-            array("Мяч для футболу K-Sector Pro Team", "Опис", 403),
-		array("Мяч для футболу NIKE SABER", "Опис", 907),
-		array("Мяч для футболу Joma Egeo 5", "Опис", 706),
-            array("Мяч для футболу NIKE PREMIER TEAM FIFA", "Опис", 907) );
+        // test set of users
+        $myusers = array(
+            array("bag", "description", 1500),
+            array("shoes", "description", 2050),
+            array("shirt", "description", 389) );
         
-        foreach($myitems as $item)
+        foreach($myusers as $user)
         {
-            $title = $item[0];
-            $description = $item[1];
-            $price = $item[2];
+            $title = $user[0];
+            $description = $user[1];
+            $price = $user[2];
             $insertquery->execute(array($title, $description, $price));
             
             echo "Insert error code = ".$insertquery->errorCode()." "; // Five zeros are good like this 00000 but HY001 is a common error
