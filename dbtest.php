@@ -49,9 +49,9 @@
       
         // test set of users
         $myusers = array(
-            array("bag", "description", 1500),
-            array("shoes", "description", 2050),
-            array("shirt", "description", 389) );
+            array("ball_1", "description", 1500),
+            array("ball_2", "description", 2050),
+            array("ball_3", "description", 389) );
         
         foreach($myusers as $user)
         {
