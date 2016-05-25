@@ -53,8 +53,8 @@
         $myitems = array(
             array("Мяч для футболу SELECT Contra", "Опис", 598),
             array("Мяч для футболу K-Sector Pro Team", "Опис", 403),
-			array("Мяч для футболу NIKE SABER", "Опис", 907),
-			array("Мяч для футболу Joma Egeo 5", "Опис", 706),
+		array("Мяч для футболу NIKE SABER", "Опис", 907),
+		array("Мяч для футболу Joma Egeo 5", "Опис", 706),
             array("Мяч для футболу NIKE PREMIER TEAM FIFA", "Опис", 907) );
         
         foreach($myitems as $item)
@@ -94,23 +94,3 @@
     }
 
 ?>
-
-<!DOCTYPE html>
-<html>
-    <meta charset="UTF-8"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <link rel="stylesheet" href="w3.css"></link>
-    <link rel="stylesheet" href="w3-theme-green.css"></link>
-    <body>
-        <header class="w3-container w3-card-4 w3-theme">
-            <title>SportV</title>
-            <h1>SportV</h1>
-        </header>
-        
-        <div class="w3-container" id="itemcontainer">
-        </div>
-        	
-		<footer class="w3-container w3-center w3-theme w3-bottom"> 
-		</footer>
-    </body>
-</html>
