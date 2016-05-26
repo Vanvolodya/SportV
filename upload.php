@@ -19,7 +19,7 @@
             $content = fopen($_FILES["testfile"]["tmp_name"], "r");
             $blob_name = hash( "sha256", uniqid("awu4hzkf29384hf", true)."jd9hr123794hrf", false );
             $container_name= "files";
-            $url = "https://evfsxgdkdr.blob.core.windows.net/files/".$blob_name;
+            $url = "https://sportvstorage.blob.core.windows.net/files/".$blob_name;
             
             try
             {
